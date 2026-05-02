@@ -1,282 +1,883 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Udaan Digital Premium</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>Udaan Digital - Turning Clicks into Customers</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
-body{
-background:#0b0b0b;
-color:white;
-overflow-x:hidden;
-}
+:root{--orange:#FF6B00;--dark:#0a0a0a;--gray:#888;--purple:#8B5CF6;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:#fff;overflow-x:hidden;}
 
-/* Navbar */
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 80px;
-position:fixed;
-width:100%;
-background:rgba(0,0,0,0.8);
-backdrop-filter:blur(10px);
-z-index:1000;
-}
+/* ===== NAVBAR ===== */
+nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(10,10,10,0.97);backdrop-filter:blur(12px);padding:13px 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,107,0,0.15);animation:slideDown .6s ease;}
+@keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-icon{width:42px;height:42px;background:var(--orange);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:15px;}
+.logo-text strong{color:#fff;font-size:16px;display:block;}
+.logo-text strong span{color:var(--orange);}
+.logo-text small{font-size:10px;color:#666;}
+.nav-links{display:flex;gap:26px;list-style:none;}
+.nav-links a{color:#ccc;text-decoration:none;font-size:13.5px;font-weight:500;transition:color .3s;position:relative;}
+.nav-links a:hover,.nav-links a.active{color:var(--orange);}
+.nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:var(--orange);border-radius:2px;}
+.nav-btns{display:flex;gap:10px;}
+.btn-gmail{background:transparent;border:1.5px solid #444;color:#ccc;padding:8px 15px;border-radius:6px;font-size:12.5px;cursor:pointer;transition:all .3s;text-decoration:none;display:flex;align-items:center;gap:6px;}
+.btn-gmail:hover{border-color:var(--orange);color:var(--orange);}
+.btn-wa-nav{background:var(--orange);border:none;color:#fff;padding:8px 15px;border-radius:6px;font-size:12.5px;cursor:pointer;transition:all .3s;text-decoration:none;display:flex;align-items:center;gap:6px;font-weight:700;}
+.btn-wa-nav:hover{background:#e05e00;transform:translateY(-1px);box-shadow:0 4px 15px rgba(255,107,0,.4);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{display:block;width:25px;height:2px;background:#fff;border-radius:2px;transition:.3s;}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(10,10,10,.98);padding:20px 5%;flex-direction:column;gap:14px;border-bottom:1px solid rgba(255,107,0,.2);}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:#ccc;text-decoration:none;font-size:15px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);}
+.mobile-menu a:hover{color:var(--orange);}
 
-nav h1{
-color:#ff7b00;
-font-size:30px;
-}
+/* ===== HERO ===== */
+.hero{min-height:100vh;background:linear-gradient(135deg,#080808 0%,#111 50%,#0d0d0d 100%);padding:110px 5% 70px;display:flex;align-items:center;gap:40px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,.07) 0%,transparent 65%);animation:glow 5s ease-in-out infinite;}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.05) 0%,transparent 65%);animation:glow 6s ease-in-out infinite reverse;}
+@keyframes glow{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.hero-left{flex:1;z-index:2;animation:fadeLeft .8s ease;}
+@keyframes fadeLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+.hero-left h1{font-size:clamp(34px,4.8vw,62px);font-weight:900;color:#fff;line-height:1.13;margin-bottom:18px;}
+.hero-left h1 span{color:var(--orange);}
+.hero-left p{color:#aaa;font-size:15px;line-height:1.85;max-width:460px;margin-bottom:32px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px;}
+.btn-primary{background:var(--orange);color:#fff;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px;transition:all .3s;border:none;cursor:pointer;}
+.btn-primary:hover{background:#e05e00;transform:translateY(-3px);box-shadow:0 8px 25px rgba(255,107,0,.5);}
+.btn-outline{background:transparent;color:#fff;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:8px;border:1.5px solid #444;transition:all .3s;}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-3px);}
+.hero-badges{display:flex;gap:18px;flex-wrap:wrap;}
+.hbadge{display:flex;align-items:center;gap:6px;color:#999;font-size:12.5px;}
+.hbadge i{color:var(--orange);}
+.hero-ticker{margin-top:26px;display:flex;align-items:center;gap:8px;color:var(--orange);font-size:13.5px;font-weight:600;animation:ticker 2s infinite;}
+@keyframes ticker{0%,100%{opacity:1}50%{opacity:.55}}
+.hero-right{flex:1;display:flex;justify-content:center;align-items:center;position:relative;z-index:2;animation:fadeRight .8s ease;}
+@keyframes fadeRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-padding:10px 20px;
-border:1px solid #ff7b00;
-border-radius:30px;
-}
+/* Laptop mockup */
+.laptop-wrap{position:relative;width:400px;max-width:100%;}
+.laptop-body{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);border-radius:16px;padding:22px;border:2px solid rgba(255,107,0,.3);box-shadow:0 0 60px rgba(255,107,0,.18),0 30px 80px rgba(0,0,0,.8);position:relative;overflow:hidden;animation:floatUp 3.5s ease-in-out infinite;}
+@keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.laptop-body::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--purple),var(--orange));background-size:200%;animation:shimmer 2s linear infinite;}
+@keyframes shimmer{0%{background-position:-200%}100%{background-position:200%}}
+.lb-dots{display:flex;gap:6px;margin-bottom:14px;}
+.lbd{width:10px;height:10px;border-radius:50%;}
+.chart-area{display:flex;align-items:flex-end;gap:7px;height:75px;margin-bottom:12px;}
+.cbar{border-radius:4px 4px 0 0;animation:growUp 1.2s ease both;}
+@keyframes growUp{from{height:0!important}}
+.cbar:nth-child(1){width:16px;height:35%;background:var(--orange);animation-delay:.1s;}
+.cbar:nth-child(2){width:16px;height:58%;background:#FF8C00;animation-delay:.2s;}
+.cbar:nth-child(3){width:16px;height:45%;background:var(--orange);animation-delay:.3s;}
+.cbar:nth-child(4){width:16px;height:82%;background:#FF8C00;animation-delay:.4s;}
+.cbar:nth-child(5){width:16px;height:65%;background:var(--orange);animation-delay:.5s;}
+.cbar:nth-child(6){width:16px;height:92%;background:#FF8C00;animation-delay:.6s;}
+.cbar:nth-child(7){width:16px;height:72%;background:#FFB347;animation-delay:.7s;}
+.lb-stats{display:flex;gap:8px;}
+.lbs{background:rgba(255,107,0,.15);border:1px solid rgba(255,107,0,.3);border-radius:8px;padding:7px 10px;flex:1;text-align:center;}
+.lbs .n{font-size:17px;font-weight:800;color:var(--orange);}
+.lbs .l{font-size:8px;color:#aaa;}
 
-/* Hero */
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:120px 80px;
-}
+/* SVG Rocket */
+.rocket-svg{position:absolute;top:-50px;right:80px;animation:rocketFly 3s ease-in-out infinite;}
+@keyframes rocketFly{0%,100%{transform:translateY(0) rotate(-20deg)}50%{transform:translateY(-22px) rotate(-15deg)}}
 
-.hero-text h2{
-font-size:70px;
-line-height:1.2;
-}
+/* Floating social icons */
+.ficon{position:absolute;animation:iconFloat 4s ease-in-out infinite;}
+.ficon img{border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.5);}
+.fi-g{top:-25px;right:-25px;}
+.fi-fb{top:10px;right:50px;animation-delay:.7s;}
+.fi-ig{bottom:20px;left:-28px;animation-delay:1.5s;}
+@keyframes iconFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(6deg)}}
 
-.hero-text span{
-color:#ff7b00;
-}
+/* About boy character */
+.boy-wrap{position:relative;display:flex;justify-content:center;align-items:flex-end;margin-top:10px;}
 
-.hero-text p{
-margin:20px 0;
-font-size:20px;
-color:#ccc;
-max-width:500px;
-}
+/* ===== SECTIONS COMMON ===== */
+.sec-tag{color:var(--orange);font-size:11.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-align:center;margin-bottom:8px;}
+.sec-title{font-size:clamp(26px,3.8vw,40px);font-weight:800;text-align:center;color:#111;margin-bottom:10px;}
+.sec-title span{color:var(--orange);}
+.sec-sub{text-align:center;color:var(--gray);font-size:14px;margin-bottom:46px;}
+.reveal{opacity:0;transform:translateY(28px);transition:all .65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
 
-.btn{
-display:inline-block;
-padding:15px 35px;
-background:#ff7b00;
-color:white;
-text-decoration:none;
-border-radius:30px;
-margin-right:15px;
-box-shadow:0px 0px 20px #ff7b00;
-}
+/* ===== SERVICES ===== */
+.services{padding:80px 5%;background:#fff;}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1020px;margin:0 auto;}
+.srv-card{border:1.5px solid #eee;border-radius:14px;padding:26px 22px;transition:all .3s;cursor:pointer;position:relative;overflow:hidden;}
+.srv-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--orange);transform:scaleX(0);transition:transform .3s;}
+.srv-card:hover::after{transform:scaleX(1);}
+.srv-card:hover{border-color:rgba(255,107,0,.25);transform:translateY(-6px);box-shadow:0 16px 40px rgba(255,107,0,.09);}
+.srv-icon{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;}
+.srv-card h3{font-size:15px;font-weight:700;color:#111;margin-bottom:8px;}
+.srv-card p{font-size:13px;color:var(--gray);line-height:1.7;}
 
-.hero-image{
-position:relative;
-}
+/* ===== STATS ===== */
+.stats{background:var(--dark);padding:52px 5%;}
+.stats-row{display:flex;justify-content:center;gap:70px;flex-wrap:wrap;}
+.stat-i{text-align:center;}
+.stat-i .ico{font-size:38px;margin-bottom:8px;}
+.stat-i .num{font-size:clamp(30px,4vw,50px);font-weight:900;color:#fff;}
+.stat-i .lbl{font-size:13px;color:#666;margin-top:4px;}
 
-.hero-image img{
-width:550px;
-animation:float 4s infinite ease-in-out;
-}
+/* ===== WHY ===== */
+.why{padding:80px 5%;background:#fff;}
+.why-title{font-size:clamp(24px,3.5vw,38px);font-weight:800;text-align:center;color:#111;margin-bottom:8px;}
+.why-title span{color:var(--orange);}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1100px;margin:46px auto 0;}
+.why-card{background:var(--dark);border-radius:14px;padding:28px 20px;text-align:center;transition:all .3s;border:1px solid transparent;}
+.why-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.3);border-color:rgba(255,107,0,.3);}
+.why-card .wi{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px;}
+.why-card h3{color:#fff;font-size:15px;font-weight:700;margin-bottom:10px;}
+.why-card p{color:#777;font-size:12.5px;line-height:1.7;}
 
-.icon{
-position:absolute;
-background:white;
-color:black;
-padding:15px;
-border-radius:50%;
-font-size:22px;
-animation:float 3s infinite;
-}
+/* ===== PROCESS ===== */
+.process{padding:80px 5%;background:#f9f9f9;}
+.steps{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:46px;position:relative;max-width:920px;margin-left:auto;margin-right:auto;}
+.steps::before{content:'';position:absolute;top:34px;left:12%;right:12%;height:2px;background:repeating-linear-gradient(90deg,var(--orange) 0,var(--orange) 8px,transparent 8px,transparent 16px);}
+.step{text-align:center;flex:1;min-width:140px;position:relative;z-index:1;}
+.step-circle{width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 14px;border:2.5px solid var(--orange);transition:all .3s;position:relative;}
+.step-circle::after{content:attr(data-n);position:absolute;bottom:-8px;right:-8px;width:24px;height:24px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;}
+.step:hover .step-circle{background:var(--orange);transform:scale(1.1);box-shadow:0 0 28px rgba(255,107,0,.4);}
+.step h3{font-size:14px;font-weight:700;color:#111;margin-bottom:7px;}
+.step p{font-size:12px;color:var(--gray);line-height:1.65;}
 
-.icon1{top:20%; left:-40px;}
-.icon2{top:50%; right:-40px;}
-.icon3{bottom:10%; left:20%;}
+/* ===== ABOUT + PRICING ===== */
+.about-pricing{display:grid;grid-template-columns:1fr 1fr;gap:60px;padding:80px 5%;background:#fff;align-items:start;}
+.about-sec .at{color:var(--orange);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.about-sec h2{font-size:clamp(22px,3vw,34px);font-weight:800;color:#111;margin-bottom:14px;}
+.about-sec>p{color:var(--gray);font-size:14px;line-height:1.85;margin-bottom:24px;}
+.af-list{list-style:none;}
+.af-list li{display:flex;align-items:flex-start;gap:10px;margin-bottom:15px;}
+.af-check{width:22px;height:22px;background:rgba(255,107,0,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:10px;flex-shrink:0;margin-top:2px;}
+.af-list li strong{font-size:14px;color:#111;display:block;}
+.af-list li span{font-size:12px;color:var(--gray);}
+.pricing-sec .pt{color:var(--orange);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.pricing-sec h2{font-size:clamp(22px,3vw,34px);font-weight:800;color:#111;margin-bottom:24px;}
+.price-card{background:var(--dark);border-radius:16px;padding:35px 30px;position:relative;overflow:hidden;border:2px solid rgba(255,107,0,.3);box-shadow:0 20px 60px rgba(0,0,0,.12);}
+.best-tag{position:absolute;top:18px;right:18px;background:var(--orange);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;}
+.price-amt{margin-bottom:24px;}
+.price-amt .cur{font-size:22px;color:var(--orange);font-weight:700;}
+.price-amt .amt{font-size:54px;font-weight:900;color:#fff;line-height:1;}
+.price-amt .per{font-size:14px;color:var(--orange);font-weight:600;}
+.price-feats{list-style:none;margin-bottom:28px;}
+.price-feats li{display:flex;align-items:center;gap:10px;color:#ccc;font-size:14px;margin-bottom:12px;}
+.price-feats li i{color:var(--orange);}
+.btn-cta{width:100%;background:var(--orange);color:#fff;border:none;padding:15px;border-radius:10px;font-size:14.5px;font-weight:700;cursor:pointer;transition:all .3s;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-cta:hover{background:#e05e00;transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,107,0,.5);}
+.no-hidden{text-align:center;margin-top:12px;font-size:12px;color:#555;}
 
-@keyframes float{
-0%,100%{transform:translateY(0px);}
-50%{transform:translateY(-20px);}
-}
+/* ===== TESTIMONIALS ===== */
+.testimonials{padding:80px 5%;background:#f8f8f8;}
+.t-slider{max-width:680px;margin:46px auto 0;position:relative;}
+.t-card{background:#fff;border-radius:16px;padding:34px;border:1px solid #eee;box-shadow:0 10px 40px rgba(0,0,0,.07);display:none;animation:tSlide .45s ease;}
+.t-card.active{display:block;}
+@keyframes tSlide{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.t-client{display:flex;align-items:center;gap:15px;margin-bottom:18px;}
+.t-logo{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:20px;}
+.t-stars{color:#FFD700;font-size:17px;margin-bottom:10px;}
+.t-text{color:#555;font-size:13.5px;line-height:1.8;font-style:italic;margin-bottom:14px;}
+.t-author{font-weight:700;color:#111;font-size:13.5px;}
+.t-controls{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:24px;}
+.t-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid #ddd;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:13px;}
+.t-btn:hover{background:var(--orange);border-color:var(--orange);color:#fff;}
+.t-dots{display:flex;gap:7px;}
+.tdot{width:9px;height:9px;border-radius:50%;background:#ddd;border:none;cursor:pointer;transition:all .3s;}
+.tdot.active{background:var(--orange);width:22px;border-radius:5px;}
 
-/* Services */
-.services{
-padding:100px 80px;
-text-align:center;
-}
+/* ===== CONTACT ===== */
+.contact{padding:80px 5%;background:#fff;}
+.contact-grid{display:grid;grid-template-columns:1fr 1.5fr 0.8fr;gap:40px;max-width:1100px;margin:46px auto 0;align-items:start;}
+.cinfo h3{font-size:17px;font-weight:700;color:#111;margin-bottom:22px;}
+.ci-item{display:flex;align-items:flex-start;gap:13px;margin-bottom:20px;}
+.ci-ico{width:42px;height:42px;background:rgba(255,107,0,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:16px;flex-shrink:0;}
+.ci-txt span{font-size:10.5px;color:var(--gray);display:block;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;}
+.ci-txt a,.ci-txt p{color:#111;font-size:14px;font-weight:600;text-decoration:none;transition:color .3s;}
+.ci-txt a:hover{color:var(--orange);}
+.cform{background:#f8f8f8;border-radius:16px;padding:32px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px;}
+.fg{margin-bottom:13px;}
+.fg input,.fg textarea{width:100%;padding:12px 15px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13.5px;font-family:inherit;transition:all .3s;background:#fff;color:#111;outline:none;}
+.fg input:focus,.fg textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,107,0,.07);}
+.fg textarea{height:105px;resize:none;}
+.fg input::placeholder,.fg textarea::placeholder{color:#bbb;}
+.btn-sub{width:100%;background:var(--orange);color:#fff;border:none;padding:14px;border-radius:8px;font-size:14.5px;font-weight:700;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-sub:hover{background:#e05e00;transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,107,0,.4);}
+.priv{text-align:center;font-size:11.5px;color:#aaa;margin-top:10px;}
+.cside{display:flex;flex-direction:column;align-items:center;gap:16px;}
 
-.services h2{
-font-size:50px;
-margin-bottom:50px;
-}
+/* ===== FOOTER ===== */
+footer{background:var(--dark);padding:60px 5% 28px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;margin-bottom:38px;}
+.fbrand p{color:#555;font-size:12.5px;line-height:1.8;margin:13px 0 18px;}
+.socials{display:flex;gap:9px;}
+.sl{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;color:#777;text-decoration:none;transition:all .3s;font-size:14px;}
+.sl:hover{background:var(--orange);color:#fff;transform:translateY(-3px);}
+.fcol h4{color:#fff;font-size:14.5px;font-weight:700;margin-bottom:16px;}
+.fcol ul{list-style:none;}
+.fcol ul li{margin-bottom:9px;}
+.fcol ul li a{color:#555;text-decoration:none;font-size:12.5px;transition:color .3s;}
+.fcol ul li a:hover{color:var(--orange);}
+.nl input{width:100%;padding:11px 13px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:#fff;font-size:12.5px;outline:none;margin-bottom:9px;}
+.nl input::placeholder{color:#444;}
+.nl input:focus{border-color:var(--orange);}
+.nl button{width:100%;background:var(--orange);color:#fff;border:none;padding:11px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;transition:all .3s;}
+.nl button:hover{background:#e05e00;}
+.fbottom{border-top:1px solid rgba(255,255,255,.05);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.fbottom p{color:#444;font-size:12.5px;}
 
-.service-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:25px;
-}
+/* ===== FLOATING WA ===== */
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.5);animation:waPulse 2.5s ease-in-out infinite;}
+@keyframes waPulse{0%,100%{transform:scale(1);box-shadow:0 4px 20px rgba(37,211,102,.5)}50%{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.7)}}
+.wa-tip{position:fixed;bottom:34px;right:92px;z-index:9998;background:#111;color:#fff;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:8px;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.3);}
+.wa-tip::after{content:'';position:absolute;right:-5px;top:50%;transform:translateY(-50%);border:5px solid transparent;border-right:none;border-left-color:#111;}
 
-.card{
-background:#151515;
-padding:40px;
-border-radius:20px;
-transition:.3s;
+/* ===== RESPONSIVE ===== */
+@media(max-width:960px){
+  .nav-links,.nav-btns{display:none;}
+  .hamburger{display:flex;}
+  .hero{flex-direction:column;text-align:center;padding:100px 5% 60px;}
+  .hero-btns,.hero-badges,.hero-ticker{justify-content:center;}
+  .laptop-wrap{width:290px;}
+  .srv-grid{grid-template-columns:1fr 1fr;}
+  .why-grid{grid-template-columns:1fr 1fr;}
+  .about-pricing{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .steps::before{display:none;}
 }
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 20px #ff7b00;
-}
-
-/* Stats */
-.stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-padding:80px;
-background:#111;
-text-align:center;
-}
-
-.stats h3{
-font-size:45px;
-color:#ff7b00;
-}
-
-/* Contact */
-.contact{
-padding:100px 80px;
-text-align:center;
-}
-
-.contact h2{
-font-size:50px;
-margin-bottom:30px;
-}
-
-form{
-max-width:600px;
-margin:auto;
-}
-
-input,textarea{
-width:100%;
-padding:18px;
-margin:10px 0;
-border:none;
-border-radius:10px;
-}
-
-button{
-background:#ff7b00;
-color:white;
-padding:15px 30px;
-border:none;
-border-radius:30px;
-cursor:pointer;
-font-size:18px;
-}
-
-footer{
-background:#111;
-padding:20px;
-text-align:center;
-}
-
-@media(max-width:768px){
-.hero{
-flex-direction:column;
-text-align:center;
-height:auto;
-}
-
-.hero-text h2{
-font-size:45px;
-}
-
-.hero-image img{
-width:300px;
-}
-
-.service-grid,
-.stats{
-grid-template-columns:1fr;
-}
+@media(max-width:580px){
+  .srv-grid,.why-grid,.footer-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .stats-row{gap:30px;}
 }
 </style>
 </head>
 <body>
 
-<nav>
-<h1>Udaan Digital</h1>
-<div>
-<a href="mailto:8949313611.udaandigital@gmail.com">Email</a>
-<a href="https://wa.me/918949313611">WhatsApp</a>
-</div>
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <a href="#hero" class="logo">
+    <div class="logo-icon">UD</div>
+    <div class="logo-text">
+      <strong>Udaan <span>Digital</span></strong>
+      <small>Turning Clicks into Customers</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hero" class="active">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-btns">
+    <a href="mailto:8949313611.udaandigital@gmail.com" class="btn-gmail"><i class="fas fa-envelope"></i> Gmail Us</a>
+    <a href="https://wa.me/918949313611" target="_blank" class="btn-wa-nav"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
-
-<section class="hero">
-<div class="hero-text">
-<h2>Boost Your Brand <br><span>Grow Digitally</span></h2>
-<p>We help businesses scale with websites, Google Business Profile, social media marketing & paid ads.</p>
-<a href="https://wa.me/918949313611" class="btn">Get Started</a>
-<a href="https://wa.me/918949313611" class="btn">Free Audit</a>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="closeMenu()">Home</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#process" onclick="closeMenu()">Process</a>
+  <a href="#reviews" onclick="closeMenu()">Reviews</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="https://wa.me/918949313611" target="_blank" style="color:var(--orange)"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
 </div>
 
-<div class="hero-image">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Marketing">
-<div class="icon icon1"><i class="fab fa-instagram"></i></div>
-<div class="icon icon2"><i class="fab fa-facebook"></i></div>
-<div class="icon icon3"><i class="fab fa-google"></i></div>
-</div>
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <h1>Boost Your Brand.<br><span>Grow Digitally.</span></h1>
+    <p>We help businesses across Rajasthan &amp; India grow with websites, Google Business Profiles &amp; powerful marketing strategies.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/918949313611?text=Hi!%20I%20want%20a%20Free%20Business%20Audit" target="_blank" class="btn-primary">Get Free Business Audit <i class="fas fa-arrow-right"></i></a>
+      <a href="https://wa.me/918949313611" target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+    </div>
+    <div class="hero-badges">
+      <div class="hbadge"><i class="fas fa-rocket"></i> Fast Results</div>
+      <div class="hbadge"><i class="fas fa-tags"></i> Affordable Plans</div>
+      <div class="hbadge"><i class="fas fa-headset"></i> Expert Support</div>
+      <div class="hbadge"><i class="fas fa-chart-line"></i> ROI Focused</div>
+    </div>
+    <div class="hero-ticker"><i class="fas fa-bolt"></i> Get your business online &amp; start <strong style="margin:0 4px">getting customers within 48 hours</strong></div>
+  </div>
+
+  <div class="hero-right">
+    <div class="laptop-wrap">
+      <!-- Laptop Screen -->
+      <div class="laptop-body">
+        <div class="lb-dots"><div class="lbd" style="background:#ff5f57"></div><div class="lbd" style="background:#febc2e"></div><div class="lbd" style="background:#28c840"></div></div>
+        <div style="color:#777;font-size:10px;margin-bottom:8px">📊 Growth Analytics — Udaan Digital</div>
+        <div class="chart-area">
+          <div class="cbar"></div><div class="cbar"></div><div class="cbar"></div><div class="cbar"></div><div class="cbar"></div><div class="cbar"></div><div class="cbar"></div>
+        </div>
+        <div class="lb-stats">
+          <div class="lbs"><div class="n">300%</div><div class="l">Growth</div></div>
+          <div class="lbs"><div class="n">250+</div><div class="l">Projects</div></div>
+          <div class="lbs"><div class="n">5.0⭐</div><div class="l">Rating</div></div>
+        </div>
+      </div>
+
+      <!-- SVG Rocket -->
+      <div class="rocket-svg">
+        <svg width="70" height="90" viewBox="0 0 70 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Rocket body -->
+          <ellipse cx="35" cy="38" rx="16" ry="28" fill="url(#rg1)"/>
+          <!-- Nose -->
+          <path d="M35 4 C28 14 22 22 22 30 L48 30 C48 22 42 14 35 4Z" fill="url(#rg2)"/>
+          <!-- Window -->
+          <circle cx="35" cy="34" r="7" fill="#1a1a2e" stroke="#FF6B00" stroke-width="2"/>
+          <circle cx="35" cy="34" r="4" fill="url(#rg3)" opacity=".8"/>
+          <!-- Left fin -->
+          <path d="M22 52 L14 64 L22 60 Z" fill="#FF8C00"/>
+          <!-- Right fin -->
+          <path d="M48 52 L56 64 L48 60 Z" fill="#FF8C00"/>
+          <!-- Exhaust glow -->
+          <ellipse cx="35" cy="68" rx="10" ry="6" fill="#FF6B00" opacity=".7"/>
+          <ellipse cx="35" cy="74" rx="7" ry="4" fill="#FFB347" opacity=".5"/>
+          <ellipse cx="35" cy="80" rx="4" ry="3" fill="#FFF3" opacity=".3"/>
+          <!-- Flame particles -->
+          <circle cx="30" cy="72" r="2" fill="#FF6B00" opacity=".8">
+            <animate attributeName="cy" values="72;85;72" dur="0.6s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;0;0.8" dur="0.6s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="35" cy="75" r="2.5" fill="#FFB347" opacity=".9">
+            <animate attributeName="cy" values="75;90;75" dur="0.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.9;0;0.9" dur="0.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="40" cy="72" r="2" fill="#FF6B00" opacity=".7">
+            <animate attributeName="cy" values="72;86;72" dur="0.7s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;0;0.7" dur="0.7s" repeatCount="indefinite"/>
+          </circle>
+          <!-- Stars around rocket -->
+          <circle cx="8" cy="20" r="1.5" fill="#fff" opacity=".6"><animate attributeName="opacity" values=".6;1;.6" dur="1.5s" repeatCount="indefinite"/></circle>
+          <circle cx="62" cy="15" r="1" fill="#fff" opacity=".5"><animate attributeName="opacity" values=".5;1;.5" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="5" cy="45" r="1" fill="#fff" opacity=".4"><animate attributeName="opacity" values=".4;.9;.4" dur="1.8s" repeatCount="indefinite"/></circle>
+          <defs>
+            <linearGradient id="rg1" x1="20" y1="10" x2="50" y2="66" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#d0d0d0"/>
+            </linearGradient>
+            <linearGradient id="rg2" x1="22" y1="4" x2="48" y2="30" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FF6B00"/>
+              <stop offset="100%" stop-color="#FF8C00"/>
+            </linearGradient>
+            <radialGradient id="rg3" cx="50%" cy="30%" r="50%">
+              <stop offset="0%" stop-color="#4fc3f7"/>
+              <stop offset="100%" stop-color="#0d47a1"/>
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <!-- Floating Google icon -->
+      <div class="ficon fi-g">
+        <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+          <rect width="44" height="44" rx="10" fill="#fff"/>
+          <path d="M22 10.5c3.2 0 5.8 1.1 7.8 2.9l-3.2 3.2c-1.3-1.2-2.9-1.9-4.6-1.9-3.8 0-7 3.1-7 7s3.2 7 7 7c3.3 0 5.5-1.6 6.2-4H22v-4.2h10.5c.1.6.2 1.3.2 2.2 0 6.2-4.2 10.6-10.7 10.6-6.1 0-11-5-11-11s4.9-11 11-11z" fill="#4285F4"/>
+          <path d="M10 22c0-1.5.3-3 .8-4.3L7 15.1C5.8 17.3 5 19.6 5 22s.8 4.7 2 6.9l3.8-2.9C10.3 25 10 23.5 10 22z" fill="#34A853"/>
+          <path d="M22 34c-3 0-5.6-1-7.6-2.7l-3.8 2.9C13.4 37.1 17.4 39 22 39c5.3 0 9.8-2.9 12.1-7.1l-3.9-2.9C28.8 32.2 25.7 34 22 34z" fill="#FBBC05"/>
+          <path d="M33.5 17.5H22v4.2h6.2c-.7 2.4-2.9 4-6.2 4-3.8 0-7-3.1-7-7s3.2-7 7-7c1.7 0 3.3.7 4.6 1.9l3.2-3.2c-2-1.8-4.6-2.9-7.8-2.9-6.1 0-11 5-11 11s4.9 11 11 11c6.5 0 10.7-4.4 10.7-10.6 0-.9-.1-1.6-.2-2.2h-.5z" fill="#EA4335"/>
+        </svg>
+      </div>
+
+      <!-- Floating Facebook icon -->
+      <div class="ficon fi-fb">
+        <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+          <rect width="44" height="44" rx="10" fill="#1877F2"/>
+          <path d="M24.5 22h3l.5-3.5h-3.5V16c0-1 .5-2 2-2h1.5v-3S26.5 10.7 25 10.7c-2.7 0-4.5 1.6-4.5 4.5v2.3H17V21h3.5v10h4V22z" fill="#fff"/>
+        </svg>
+      </div>
+
+      <!-- Floating Instagram icon -->
+      <div class="ficon fi-ig">
+        <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#FD5949"/>
+              <stop offset="50%" stop-color="#D6249F"/>
+              <stop offset="100%" stop-color="#285AEB"/>
+            </linearGradient>
+          </defs>
+          <rect width="44" height="44" rx="10" fill="url(#igGrad)"/>
+          <rect x="12" y="12" width="20" height="20" rx="5" fill="none" stroke="#fff" stroke-width="2"/>
+          <circle cx="22" cy="22" r="5" fill="none" stroke="#fff" stroke-width="2"/>
+          <circle cx="28.5" cy="15.5" r="1.5" fill="#fff"/>
+        </svg>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="services">
-<h2>Our Premium Services</h2>
-<div class="service-grid">
-<div class="card">Website Design</div>
-<div class="card">Google Business Profile</div>
-<div class="card">SEO</div>
-<div class="card">Meta Ads</div>
-<div class="card">Social Media Marketing</div>
-<div class="card">Branding</div>
-</div>
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <p class="sec-tag">WHAT WE OFFER</p>
+  <h2 class="sec-title">Our <span>Premium</span> Services</h2>
+  <p class="sec-sub">Digital marketing solutions designed to grow your business.</p>
+  <div class="srv-grid">
+    <div class="srv-card reveal">
+      <div class="srv-icon" style="background:rgba(255,107,0,.1);color:var(--orange)"><i class="fas fa-desktop"></i></div>
+      <h3>Website Design</h3>
+      <p>Modern, responsive websites that convert visitors into customers.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-icon" style="background:rgba(66,133,244,.1);color:#4285F4"><i class="fab fa-google"></i></div>
+      <h3>Google Business Profile</h3>
+      <p>Improve your local ranking and get discovered by more local customers.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-icon" style="background:rgba(225,48,108,.1);color:#E1306C"><i class="fab fa-instagram"></i></div>
+      <h3>Social Media Marketing</h3>
+      <p>Build your brand, engage your audience and grow online.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-icon" style="background:rgba(52,199,89,.1);color:#34C759"><i class="fas fa-search"></i></div>
+      <h3>SEO Optimization</h3>
+      <p>Rank higher on Google and get more organic traffic.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-icon" style="background:rgba(0,99,176,.1);color:#0063b0"><i class="fab fa-meta"></i></div>
+      <h3>Meta Ads</h3>
+      <p>Run high-converting ads that generate quality leads.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-icon" style="background:rgba(255,200,0,.1);color:#FFB800"><i class="fas fa-palette"></i></div>
+      <h3>Branding</h3>
+      <p>Create a strong brand identity that sets you apart.</p>
+    </div>
+  </div>
 </section>
 
+<!-- ===== STATS ===== -->
 <section class="stats">
-<div><h3>150+</h3><p>Clients</p></div>
-<div><h3>250+</h3><p>Projects</p></div>
-<div><h3>300%</h3><p>Growth</p></div>
-<div><h3>5.0</h3><p>Rating</p></div>
+  <div class="stats-row">
+    <div class="stat-i reveal"><div class="ico">👥</div><div class="num" style="color:var(--orange)">150+</div><div class="lbl">Happy Clients</div></div>
+    <div class="stat-i reveal"><div class="ico">🚀</div><div class="num" style="color:#4ade80">250+</div><div class="lbl">Projects Completed</div></div>
+    <div class="stat-i reveal"><div class="ico">📈</div><div class="num" style="color:#818cf8">300%</div><div class="lbl">Average Growth</div></div>
+    <div class="stat-i reveal"><div class="ico">⭐</div><div class="num" style="color:#FFD700">5.0</div><div class="lbl">Client Rating</div></div>
+  </div>
 </section>
 
-<section class="contact">
-<h2>Let's Grow Your Business</h2>
-<form onsubmit="sendWhatsApp(); return false;">
-<input type="text" id="name" placeholder="Your Name" required>
-<input type="text" id="phone" placeholder="Phone Number" required>
-<textarea id="message" placeholder="Your Message"></textarea>
-<button type="submit">Send on WhatsApp</button>
-</form>
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="why">
+  <p class="sec-tag">WHY CHOOSE US</p>
+  <h2 class="why-title">We Don't Just Promise, We <span>Deliver</span></h2>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="wi" style="background:rgba(255,200,0,.15)"><i class="fas fa-wallet" style="color:#FFD700"></i></div>
+      <h3>Affordable</h3>
+      <p>Perfect digital solutions for local businesses and startups.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="wi" style="background:rgba(255,107,0,.15)"><i class="fas fa-rocket" style="color:var(--orange)"></i></div>
+      <h3>Fast Results</h3>
+      <p>Quick setup and strategies that deliver real growth.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="wi" style="background:rgba(59,130,246,.15)"><i class="fas fa-headset" style="color:#3B82F6"></i></div>
+      <h3>Support</h3>
+      <p>1-on-1 personalised support whenever you need us.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="wi" style="background:rgba(236,72,153,.15)"><i class="fas fa-bullseye" style="color:#EC4899"></i></div>
+      <h3>Lead Focused</h3>
+      <p>We focus on real customers, not just vanity metrics.</p>
+    </div>
+  </div>
 </section>
 
+<!-- ===== PROCESS ===== -->
+<section class="process" id="process">
+  <p class="sec-tag">OUR PROCESS</p>
+  <h2 class="sec-title">Our Simple <span>4-Step</span> Process</h2>
+  <div class="steps">
+    <div class="step reveal"><div class="step-circle" data-n="1" style="background:rgba(255,107,0,.1)">👥</div><h3>Understand Business</h3><p>We learn about your business, audience and goals.</p></div>
+    <div class="step reveal"><div class="step-circle" data-n="2" style="background:rgba(236,72,153,.1)">🎯</div><h3>Build Strategy</h3><p>We create a customised strategy for you.</p></div>
+    <div class="step reveal"><div class="step-circle" data-n="3" style="background:rgba(59,130,246,.1)">🚀</div><h3>Launch &amp; Optimise</h3><p>We launch your campaigns and optimise for best results.</p></div>
+    <div class="step reveal"><div class="step-circle" data-n="4" style="background:rgba(52,199,89,.1)">📊</div><h3>Generate Customers</h3><p>We bring you more leads and paying customers.</p></div>
+  </div>
+</section>
+
+<!-- ===== ABOUT + PRICING ===== -->
+<div class="about-pricing" id="about">
+  <!-- About with SVG Boy Character -->
+  <div class="about-sec reveal">
+    <p class="at">ABOUT UDAAN DIGITAL</p>
+    <h2>Your Growth Partner in Digital World</h2>
+    <p>Udaan Digital is a modern digital marketing agency dedicated to helping businesses grow in the digital world. We specialise in websites, Google Business Profiles, branding, and lead generation.</p>
+    <ul class="af-list">
+      <li><div class="af-check"><i class="fas fa-check"></i></div><div><strong>Local Expertise</strong><span>Based in Rajasthan, working across India.</span></div></li>
+      <li><div class="af-check"><i class="fas fa-check"></i></div><div><strong>Result Driven</strong><span>We focus on growth and real results.</span></div></li>
+      <li><div class="af-check"><i class="fas fa-check"></i></div><div><strong>Customer First</strong><span>Your success is our success.</span></div></li>
+    </ul>
+    <!-- SVG Boy Character -->
+    <div class="boy-wrap" style="margin-top:30px;">
+      <svg width="200" height="240" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+        <!-- Laptop on lap -->
+        <rect x="55" y="170" width="90" height="55" rx="6" fill="#1a1a2e" stroke="#FF6B00" stroke-width="1.5"/>
+        <rect x="60" y="175" width="80" height="42" rx="4" fill="#0f3460"/>
+        <!-- Laptop screen content -->
+        <rect x="65" y="179" width="70" height="8" rx="2" fill="#FF6B00" opacity=".4"/>
+        <rect x="65" y="190" width="50" height="4" rx="2" fill="#fff" opacity=".2"/>
+        <rect x="65" y="197" width="60" height="4" rx="2" fill="#fff" opacity=".15"/>
+        <rect x="65" y="204" width="40" height="4" rx="2" fill="#FF6B00" opacity=".5"/>
+        <!-- Laptop base -->
+        <rect x="50" y="224" width="100" height="6" rx="3" fill="#333"/>
+        <!-- Body -->
+        <rect x="70" y="130" width="60" height="60" rx="8" fill="#1a1a2e"/>
+        <!-- Shirt logo -->
+        <circle cx="100" cy="153" r="8" fill="#FF6B00" opacity=".3"/>
+        <text x="100" y="157" text-anchor="middle" font-size="8" fill="#FF6B00" font-weight="700">UD</text>
+        <!-- Left arm -->
+        <path d="M70 138 Q50 148 52 165 Q54 170 58 168 Q62 155 70 148Z" fill="#1a1a2e"/>
+        <!-- Right arm -->
+        <path d="M130 138 Q150 148 148 165 Q146 170 142 168 Q138 155 130 148Z" fill="#1a1a2e"/>
+        <!-- Hands -->
+        <ellipse cx="55" cy="168" rx="6" ry="5" fill="#f5cba7"/>
+        <ellipse cx="145" cy="168" rx="6" ry="5" fill="#f5cba7"/>
+        <!-- Neck -->
+        <rect x="93" y="118" width="14" height="16" rx="4" fill="#f5cba7"/>
+        <!-- Head -->
+        <ellipse cx="100" cy="105" rx="26" ry="28" fill="#f5cba7"/>
+        <!-- Hair -->
+        <path d="M74 100 Q76 72 100 70 Q124 72 126 100 Q120 85 100 83 Q80 85 74 100Z" fill="#2c1a0e"/>
+        <!-- Hair top detail -->
+        <path d="M82 80 Q90 74 100 73 Q110 74 118 80" stroke="#3d2b1f" stroke-width="2" fill="none"/>
+        <!-- Eyes -->
+        <ellipse cx="90" cy="104" rx="4.5" ry="5" fill="#fff"/>
+        <ellipse cx="110" cy="104" rx="4.5" ry="5" fill="#fff"/>
+        <circle cx="91" cy="105" r="2.8" fill="#2c1a0e"/>
+        <circle cx="111" cy="105" r="2.8" fill="#2c1a0e"/>
+        <circle cx="92" cy="104" r="1" fill="#fff"/>
+        <circle cx="112" cy="104" r="1" fill="#fff"/>
+        <!-- Eyebrows -->
+        <path d="M85 97 Q90 94 95 97" stroke="#2c1a0e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M105 97 Q110 94 115 97" stroke="#2c1a0e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- Nose -->
+        <ellipse cx="100" cy="113" rx="3" ry="2" fill="#e8a87c"/>
+        <!-- Smile -->
+        <path d="M91 120 Q100 127 109 120" stroke="#c0392b" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- Ears -->
+        <ellipse cx="74" cy="106" rx="5" ry="7" fill="#f5cba7"/>
+        <ellipse cx="126" cy="106" rx="5" ry="7" fill="#f5cba7"/>
+        <!-- Glasses -->
+        <rect x="84" y="100" width="13" height="10" rx="5" fill="none" stroke="#FF6B00" stroke-width="1.5"/>
+        <rect x="103" y="100" width="13" height="10" rx="5" fill="none" stroke="#FF6B00" stroke-width="1.5"/>
+        <line x1="97" y1="104" x2="103" y2="104" stroke="#FF6B00" stroke-width="1.5"/>
+        <!-- Floating notification badge -->
+        <circle cx="155" cy="90" r="16" fill="#FF6B00">
+          <animate attributeName="r" values="16;18;16" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <text x="155" y="95" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">+3</text>
+        <!-- Chat bubble -->
+        <rect x="130" y="60" width="60" height="22" rx="8" fill="#25D366"/>
+        <path d="M136 82 L130 88 L142 82Z" fill="#25D366"/>
+        <text x="160" y="74" text-anchor="middle" font-size="8" fill="#fff" font-weight="600">New Lead! 🎉</text>
+        <!-- Stars -->
+        <text x="30" y="90" font-size="12" opacity=".6">⭐</text>
+        <text x="14" y="130" font-size="9" opacity=".4">✨</text>
+        <text x="170" y="120" font-size="10" opacity=".5">💡</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="pricing-sec reveal">
+    <p class="pt">PRICING PLAN</p>
+    <h2>Affordable Pricing</h2>
+    <div class="price-card">
+      <div class="best-tag">Best for Startups</div>
+      <div class="price-amt"><span class="cur">₹</span><span class="amt">5000</span> <span class="per">Starting</span></div>
+      <ul class="price-feats">
+        <li><i class="fas fa-check-circle"></i> Basic Website OR Google Business Setup</li>
+        <li><i class="fas fa-check-circle"></i> Basic SEO Setup</li>
+        <li><i class="fas fa-check-circle"></i> Initial Support</li>
+        <li><i class="fas fa-check-circle"></i> 30 Days Support</li>
+      </ul>
+      <a href="https://wa.me/918949313611?text=Hi!%20I%20want%20to%20know%20about%20your%20%E2%82%B95000%20plan" target="_blank" class="btn-cta"><i class="fab fa-whatsapp"></i> Send a WhatsApp Now</a>
+      <p class="no-hidden">🔒 No Hidden Charges | Transparent Pricing</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials" id="reviews">
+  <p class="sec-tag">CLIENT REVIEW</p>
+  <h2 class="sec-title">What Our <span>Clients</span> Say</h2>
+  <div class="t-slider">
+    <div class="t-card active">
+      <div class="t-client">
+        <div class="t-logo" style="background:linear-gradient(135deg,#0066cc,#0099ff)">O</div>
+        <div><strong style="color:#111;font-size:15px">Ocean Online &amp; IT Services</strong><br><small style="color:var(--gray)">IT Services, Rajasthan</small></div>
+      </div>
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Excellent work by Udaan Digital! Our website and Google Business Profile ranking improved a lot. Highly professional team with great support."</p>
+      <p class="t-author">— Harsh Ji, Owner</p>
+    </div>
+    <div class="t-card">
+      <div class="t-client">
+        <div class="t-logo" style="background:linear-gradient(135deg,#f97316,#dc2626)">R</div>
+        <div><strong style="color:#111;font-size:15px">Rajasthan Traders</strong><br><small style="color:var(--gray)">Retail Business, Jodhpur</small></div>
+      </div>
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Udaan Digital helped us get our business online within 2 days! Our customer inquiries have tripled since then. Amazing team!"</p>
+      <p class="t-author">— Ramesh Ji, Owner</p>
+    </div>
+    <div class="t-card">
+      <div class="t-client">
+        <div class="t-logo" style="background:linear-gradient(135deg,#8b5cf6,#3b82f6)">S</div>
+        <div><strong style="color:#111;font-size:15px">Sunrise Enterprises</strong><br><small style="color:var(--gray)">Manufacturing, Rajasthan</small></div>
+      </div>
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Their Meta Ads strategy brought us quality leads within the first week. Very professional and responsive. Highly recommend!"</p>
+      <p class="t-author">— Priya Ji, Manager</p>
+    </div>
+    <div class="t-controls">
+      <button class="t-btn" onclick="changeSlide(-1)"><i class="fas fa-arrow-left"></i></button>
+      <div class="t-dots">
+        <button class="tdot active" onclick="goSlide(0)"></button>
+        <button class="tdot" onclick="goSlide(1)"></button>
+        <button class="tdot" onclick="goSlide(2)"></button>
+      </div>
+      <button class="t-btn" onclick="changeSlide(1)"><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <p class="sec-tag">GET IN TOUCH</p>
+  <h2 class="sec-title">Let's <span>Grow</span> Your Business Together</h2>
+  <div class="contact-grid">
+    <div class="cinfo reveal">
+      <h3>Contact Information</h3>
+      <div class="ci-item"><div class="ci-ico"><i class="fas fa-phone"></i></div><div class="ci-txt"><span>Phone</span><a href="tel:+918949313611">8949313611</a></div></div>
+      <div class="ci-item"><div class="ci-ico"><i class="fas fa-envelope"></i></div><div class="ci-txt"><span>Email</span><a href="mailto:8949313611.udaandigital@gmail.com">8949313611.udaandigital@gmail.com</a></div></div>
+      <div class="ci-item"><div class="ci-ico"><i class="fab fa-instagram"></i></div><div class="ci-txt"><span>Instagram</span><a href="https://instagram.com/udaan.digital" target="_blank">@udaan.digital</a></div></div>
+      <div class="ci-item"><div class="ci-ico"><i class="fas fa-map-marker-alt"></i></div><div class="ci-txt"><span>Location</span><p>Rajasthan, India</p></div></div>
+    </div>
+    <div class="cform reveal">
+      <div class="form-row">
+        <div class="fg"><input type="text" id="fname" placeholder="Your Name" required></div>
+        <div class="fg"><input type="tel" id="fphone" placeholder="Phone Number" required></div>
+      </div>
+      <div class="fg"><input type="email" id="femail" placeholder="Your Email"></div>
+      <div class="fg"><textarea id="fmsg" placeholder="Your Message"></textarea></div>
+      <button class="btn-sub" onclick="sendWA()"><i class="fab fa-whatsapp"></i> Send on WhatsApp</button>
+      <p class="priv">🔒 We respect your privacy. Your information is safe with us.</p>
+    </div>
+    <!-- SVG Phone Character -->
+    <div class="cside reveal">
+      <svg width="160" height="280" viewBox="0 0 160 280" xmlns="http://www.w3.org/2000/svg">
+        <!-- Phone body -->
+        <rect x="50" y="100" width="70" height="120" rx="14" fill="#1a1a2e" stroke="#FF6B00" stroke-width="2"/>
+        <rect x="56" y="108" width="58" height="95" rx="6" fill="#0f3460"/>
+        <!-- Phone screen content -->
+        <rect x="60" y="112" width="50" height="8" rx="3" fill="#25D366" opacity=".8"/>
+        <text x="85" y="119" text-anchor="middle" font-size="5.5" fill="#fff" font-weight="600">WhatsApp</text>
+        <rect x="60" y="124" width="38" height="5" rx="2" fill="#fff" opacity=".15"/>
+        <rect x="60" y="132" width="45" height="5" rx="2" fill="#FF6B00" opacity=".4"/>
+        <rect x="60" y="140" width="32" height="5" rx="2" fill="#fff" opacity=".1"/>
+        <rect x="60" y="150" width="50" height="18" rx="4" fill="#FF6B00"/>
+        <text x="85" y="162" text-anchor="middle" font-size="6" fill="#fff" font-weight="700">Send Message</text>
+        <!-- Home button -->
+        <circle cx="85" cy="212" r="6" fill="#333" stroke="#555" stroke-width="1"/>
+        <!-- Person holding phone -->
+        <!-- Body -->
+        <rect x="60" y="60" width="50" height="50" rx="8" fill="#FF6B00"/>
+        <!-- Shirt text -->
+        <text x="85" y="90" text-anchor="middle" font-size="7" fill="#fff" font-weight="700">UDAAN</text>
+        <!-- Left arm holding phone -->
+        <path d="M60 75 Q38 80 42 100 Q44 108 52 106 Q54 96 60 88Z" fill="#FF6B00"/>
+        <!-- Right arm -->
+        <path d="M110 75 Q132 80 128 100 Q126 108 118 106 Q116 96 110 88Z" fill="#FF6B00"/>
+        <!-- Hands -->
+        <ellipse cx="47" cy="106" rx="5" ry="4" fill="#f5cba7"/>
+        <ellipse cx="123" cy="106" rx="5" ry="4" fill="#f5cba7"/>
+        <!-- Neck -->
+        <rect x="79" y="48" width="12" height="14" rx="4" fill="#f5cba7"/>
+        <!-- Head -->
+        <ellipse cx="85" cy="36" rx="22" ry="23" fill="#f5cba7"/>
+        <!-- Hair -->
+        <path d="M63 30 Q65 8 85 7 Q105 8 107 30 Q102 18 85 17 Q68 18 63 30Z" fill="#2c1a0e"/>
+        <!-- Eyes -->
+        <ellipse cx="77" cy="35" rx="4" ry="4.5" fill="#fff"/>
+        <ellipse cx="93" cy="35" rx="4" ry="4.5" fill="#fff"/>
+        <circle cx="78" cy="36" r="2.5" fill="#2c1a0e"/>
+        <circle cx="94" cy="36" r="2.5" fill="#2c1a0e"/>
+        <circle cx="79" cy="35" r=".9" fill="#fff"/>
+        <circle cx="95" cy="35" r=".9" fill="#fff"/>
+        <!-- Smile -->
+        <path d="M78 44 Q85 50 92 44" stroke="#c0392b" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- Nose -->
+        <ellipse cx="85" cy="41" rx="2.5" ry="1.8" fill="#e8a87c"/>
+        <!-- Ears -->
+        <ellipse cx="63" cy="37" rx="4" ry="5.5" fill="#f5cba7"/>
+        <ellipse cx="107" cy="37" rx="4" ry="5.5" fill="#f5cba7"/>
+        <!-- Floating icons around -->
+        <circle cx="30" cy="40" r="14" fill="#25D366">
+          <animate attributeName="cy" values="40;34;40" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <text x="30" y="44" text-anchor="middle" font-size="12">💬</text>
+        <circle cx="140" cy="55" r="14" fill="#EA4335">
+          <animate attributeName="cy" values="55;49;55" dur="2.5s" repeatCount="indefinite"/>
+        </circle>
+        <text x="140" y="59" text-anchor="middle" font-size="12">📧</text>
+        <circle cx="25" cy="150" r="12" fill="#FF6B00">
+          <animate attributeName="cy" values="150;144;150" dur="1.8s" repeatCount="indefinite"/>
+        </circle>
+        <text x="25" y="154" text-anchor="middle" font-size="10">📱</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
 <footer>
-<p>📞 8949313611 | ✉️ 8949313611.udaandigital@gmail.com</p>
+  <div class="footer-grid">
+    <div class="fbrand">
+      <div class="logo">
+        <div class="logo-icon">UD</div>
+        <div class="logo-text"><strong>Udaan <span>Digital</span></strong><small>Turning Clicks into Customers</small></div>
+      </div>
+      <p>Udaan Digital is your trusted digital marketing partner for businesses across Rajasthan &amp; India.</p>
+      <div class="socials">
+        <a href="https://facebook.com" target="_blank" class="sl"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/udaan.digital" target="_blank" class="sl"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/918949313611" target="_blank" class="sl"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://youtube.com" target="_blank" class="sl"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Website Design</a></li>
+        <li><a href="#">Google Business Profile</a></li>
+        <li><a href="#">Meta Ads</a></li>
+        <li><a href="#">Social Media Marketing</a></li>
+        <li><a href="#">SEO Optimization</a></li>
+        <li><a href="#">Branding</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Newsletter</h4>
+      <p style="color:#555;font-size:12.5px;margin-bottom:13px">Get digital marketing tips and updates.</p>
+      <div class="nl">
+        <input type="email" placeholder="Enter your email">
+        <button>Subscribe →</button>
+      </div>
+    </div>
+  </div>
+  <div class="fbottom">
+    <p>© 2026 Udaan Digital. All Rights Reserved.</p>
+    <p style="color:var(--orange)">Made with ❤️ in Rajasthan</p>
+  </div>
 </footer>
 
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/918949313611?text=Hi%20Udaan%20Digital!%20I%20want%20to%20grow%20my%20business." target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+<div class="wa-tip">Chat with us! 💬</div>
+
 <script>
-function sendWhatsApp(){
-let name=document.getElementById('name').value;
-let phone=document.getElementById('phone').value;
-let message=document.getElementById('message').value;
+// Mobile menu
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');}
 
-let url=`https://wa.me/918949313611?text=Name:${name}%0APhone:${phone}%0AMessage:${message}`;
-window.open(url,'_blank');
+// Sticky nav shadow
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').style.boxShadow=window.scrollY>50?'0 4px 30px rgba(0,0,0,.4)':'none';
+});
+
+// Scroll reveal
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target);}
+  });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Testimonial slider
+let cur=0;
+const cards=()=>document.querySelectorAll('.t-card');
+const dots=()=>document.querySelectorAll('.tdot');
+function changeSlide(d){
+  const c=cards(),dt=dots();
+  c[cur].classList.remove('active');dt[cur].classList.remove('active');
+  cur=(cur+d+c.length)%c.length;
+  c[cur].classList.add('active');dt[cur].classList.add('active');
 }
-</script>
+function goSlide(n){
+  cards()[cur].classList.remove('active');dots()[cur].classList.remove('active');
+  cur=n;cards()[cur].classList.add('active');dots()[cur].classList.add('active');
+}
+setInterval(()=>changeSlide(1),4500);
 
+// WhatsApp form submit
+function sendWA(){
+  const name=document.getElementById('fname').value.trim();
+  const phone=document.getElementById('fphone').value.trim();
+  const email=document.getElementById('femail').value.trim();
+  const msg=document.getElementById('fmsg').value.trim();
+  if(!name||!phone){alert('Kripya apna naam aur phone number bharein.');return;}
+  const txt=`Hi Udaan Digital!%0A%0ANaam: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AEmail: ${encodeURIComponent(email||'Nahi diya')}%0ASandesh: ${encodeURIComponent(msg||'Mujhe apna business badhana hai!')}`;
+  window.open('https://wa.me/918949313611?text='+txt,'_blank');
+}
+
+// Active nav link on scroll
+const allSections=document.querySelectorAll('section,[id]');
+window.addEventListener('scroll',()=>{
+  let current='';
+  allSections.forEach(s=>{if(window.scrollY>=s.offsetTop-110)current=s.id||'';});
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.classList.remove('active');
+    if(a.getAttribute('href')==='#'+current)a.classList.add('active');
+  });
+});
+
+// Counter animation for stats
+function animateCounter(el,target,suffix=''){
+  let count=0;const step=Math.ceil(target/60);
+  const timer=setInterval(()=>{
+    count+=step;if(count>=target){count=target;clearInterval(timer);}
+    el.textContent=count+suffix;
+  },30);
+}
+const statObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const nums=e.target.querySelectorAll('.num');
+      nums.forEach(n=>{
+        const txt=n.textContent;
+        if(txt.includes('150'))animateCounter(n,150,'+');
+        else if(txt.includes('250'))animateCounter(n,250,'+');
+        else if(txt.includes('300'))animateCounter(n,300,'%');
+        else if(txt.includes('5.0'))n.textContent='5.0';
+      });
+      statObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.5});
+const statsSection=document.querySelector('.stats');
+if(statsSection)statObs.observe(statsSection);
+</script>
 </body>
 </html>
