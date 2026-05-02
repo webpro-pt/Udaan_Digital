@@ -3,483 +3,222 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Udaan Digital | Turning Clicks into Customers</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Udaan Digital</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  scroll-behavior: smooth;
-}
-
-body {
-  background: #fff;
-  color: #111;
-  overflow-x: hidden;
-}
-
-header {
-  position: sticky;
-  top: 0;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 8%;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  z-index: 999;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo img {
-  width: 55px;
-  border-radius: 50%;
-}
-
-.logo h2 {
-  color: #ff6a00;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #111;
-  font-weight: 500;
-  transition: 0.3s ease;
-}
-
-nav a:hover {
-  color: #ff6a00;
-}
-
-.btn {
-  background: #ff6a00;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(255,106,0,0.3);
-}
-
-.hero {
-  min-height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1800&auto=format&fit=crop');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  padding: 0 10%;
-}
-
-.hero-content h1 {
-  font-size: 65px;
-  margin-bottom: 15px;
-}
-
-.hero-content span {
-  color: #ff6a00;
-}
-
-.hero-content p {
-  max-width: 800px;
-  margin: auto;
-  line-height: 1.8;
-  color: #ddd;
-  margin-bottom: 25px;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-section {
-  padding: 100px 8%;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.section-title h2 {
-  font-size: 40px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 25px;
-}
-
-.card {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-  transition: 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  border-bottom: 4px solid #ff6a00;
-}
-
-.card h3 {
-  margin-bottom: 10px;
-  color: #ff6a00;
-}
-
-.dark-section {
-  background: #111;
-  color: white;
-}
-
-.dark-section .card {
-  background: #1d1d1d;
-  color: white;
-}
-
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 20px;
-}
-
-.process-step {
-  background: #f5f5f5;
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
-  transition: 0.3s ease;
-}
-
-.process-step:hover {
-  transform: translateY(-8px);
-}
-
-.pricing-box {
-  max-width: 500px;
-  margin: auto;
-  text-align: center;
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-.pricing-box h3 {
-  color: #ff6a00;
-  font-size: 40px;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input, textarea {
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  outline: none;
-}
-
-input:focus,
-textarea:focus {
-  border-color: #ff6a00;
-}
-
-.quote {
-  background: linear-gradient(135deg,#111,#222);
-  color: white;
-  text-align: center;
-}
-
-.quote h2 {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-footer {
-  background: #000;
-  color: white;
-  text-align: center;
-  padding: 30px;
-}
-
-.floating-whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  font-size: 28px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-@media(max-width:768px) {
-
-  nav {
-    display: none;
-    position: absolute;
-    top: 80px;
-    right: 8%;
-    background: white;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  }
-
-  nav.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .hero-content h1 {
-    font-size: 40px;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth}
+body{background:#fff;color:#111;overflow-x:hidden}
+header{position:fixed;top:0;left:0;width:100%;padding:18px 8%;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);z-index:1000}
+.logo{display:flex;align-items:center;gap:12px;color:#fff}
+.logo img{width:55px;border-radius:50%}
+.logo h2{color:#ff7a00}
+nav{display:flex;gap:25px;align-items:center}
+nav a{text-decoration:none;color:#fff;font-size:14px;font-weight:500;transition:.3s}
+nav a:hover{color:#ff7a00}
+.btn{padding:12px 24px;background:linear-gradient(135deg,#ff6a00,#ff9f45);border-radius:40px;text-decoration:none;color:#fff;font-weight:600;display:inline-block;transition:.4s;box-shadow:0 8px 20px rgba(255,106,0,.3)}
+.btn:hover{transform:translateY(-5px) scale(1.05)}
+.hero{min-height:100vh;background:linear-gradient(135deg,#050505,#121212);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:130px 8% 80px;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,#ff6a00 0%,transparent 70%);opacity:.18;right:-100px;top:50px;filter:blur(50px);animation:float 8s infinite ease-in-out}
+@keyframes float{50%{transform:translateY(-30px)}}
+.hero-text h1{font-size:72px;line-height:1.1;margin-bottom:20px;font-weight:800}
+.hero-text span{color:#ff6a00}
+.hero-text p{color:#ccc;line-height:1.9;max-width:550px;margin-bottom:35px}
+.hero-buttons{display:flex;gap:18px;flex-wrap:wrap}
+.hero-image{text-align:center;position:relative}
+.hero-image img{width:95%;max-width:650px;animation:float2 6s infinite ease-in-out;filter:drop-shadow(0 20px 50px rgba(255,106,0,.35))}
+@keyframes float2{50%{transform:translateY(-20px)}}
+section{padding:90px 8%}
+.section-title{text-align:center;margin-bottom:60px}
+.section-title h2{font-size:42px;font-weight:800}
+.section-title span{color:#ff6a00}
+.services-grid,.why-grid,.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+.card{background:#fff;padding:30px;border-radius:24px;box-shadow:0 10px 30px rgba(0,0,0,.08);transition:.5s;transform-style:preserve-3d}
+.card:hover{transform:translateY(-10px) rotateX(6deg) rotateY(6deg);box-shadow:0 20px 40px rgba(0,0,0,.14)}
+.card h3{margin-bottom:12px;color:#111;font-size:22px}
+.card p{color:#666;line-height:1.8}
+.stats{background:#0f0f0f;border-radius:30px;padding:35px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;color:#fff;text-align:center;box-shadow:0 15px 35px rgba(0,0,0,.12)}
+.stats h2{font-size:42px;color:#ff6a00}
+.dark{background:#080808;color:#fff}
+.dark .card{background:#141414;color:#fff}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.step{padding:35px;background:#fff;border-radius:24px;box-shadow:0 8px 25px rgba(0,0,0,.08);transition:.4s}
+.step:hover{transform:translateY(-10px)}
+.step-number{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#ff6a00,#ff9f45);margin:auto;margin-bottom:20px;display:flex;justify-content:center;align-items:center;color:#fff;font-size:28px;font-weight:700}
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-wrap img{width:100%;border-radius:25px;box-shadow:0 20px 40px rgba(0,0,0,.15)}
+.pricing{background:#0f0f0f;color:#fff;padding:40px;border-radius:30px;box-shadow:0 20px 45px rgba(0,0,0,.18)}
+.pricing h2{font-size:50px;color:#ff6a00;margin:15px 0}
+.pricing ul{list-style:none;line-height:2.2;color:#ddd;margin-bottom:25px}
+.review{background:#fff;border-radius:30px;padding:40px;box-shadow:0 10px 35px rgba(0,0,0,.08);text-align:center;max-width:850px;margin:auto}
+.stars{color:gold;font-size:30px;margin-bottom:10px}
+.contact-box{background:#0e0e0e;color:#fff;padding:45px;border-radius:30px;display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
+.contact-box input,.contact-box textarea{width:100%;padding:15px;background:#171717;border:1px solid #333;border-radius:14px;color:#fff;margin-bottom:15px}
+.footer{background:#050505;color:#fff;padding:45px 8%;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}
+.footer h3{margin-bottom:15px;color:#ff6a00}
+.footer a{display:block;color:#bbb;text-decoration:none;margin-bottom:8px}
+.floating-whatsapp{position:fixed;bottom:25px;right:25px;width:65px;height:65px;border-radius:50%;background:#25D366;color:#fff;display:flex;justify-content:center;align-items:center;font-size:30px;text-decoration:none;box-shadow:0 10px 25px rgba(0,0,0,.2);z-index:1000;animation:bounce 2s infinite}
+@keyframes bounce{50%{transform:translateY(-8px)}}
+.reveal{opacity:0;transform:translateY(80px);transition:1s}
+.reveal.active{opacity:1;transform:translateY(0)}
+@media(max-width:992px){.hero{grid-template-columns:1fr;text-align:center}.hero-text p{margin:auto;margin-bottom:30px}.hero-buttons{justify-content:center}.about-wrap,.contact-box{grid-template-columns:1fr}.stats,.process,.footer{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){nav{display:none}.hero-text h1{font-size:48px}.stats,.process,.footer{grid-template-columns:1fr}}
 </style>
 </head>
-
 <body>
-
 <header>
-  <div class="logo">
-    <img src="logo.png" alt="Logo">
-    <h2>Udaan Digital</h2>
-  </div>
-
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-  <nav id="navMenu">
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a href="https://wa.me/918949313611" class="btn">WhatsApp</a>
-  </nav>
+<div class="logo">
+<img src="logo.png">
+<div>
+<h2>Udaan Digital</h2>
+<p style="font-size:12px;color:#bbb">Turning Clicks Into Customers</p>
+</div>
+</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+<a href="mailto:8949313611.udaandigital@gmail.com" class="btn">Gmail Us</a>
+<a href="https://wa.me/918949313611" class="btn">WhatsApp Now</a>
+</nav>
 </header>
-
 <section class="hero" id="home">
-  <div class="hero-content">
-    <h1>Boost Your Brand. <span>Grow Digitally.</span></h1>
-    <p>We help businesses across Rajasthan & India grow with websites, SEO, Google Business Profile and marketing.</p>
-
-    <div class="hero-buttons">
-      <a href="#contact" class="btn">Get Free Audit</a>
-      <a href="https://wa.me/918949313611" class="btn">WhatsApp Now</a>
-    </div>
-  </div>
+<div class="hero-text">
+<h1>Boost Your Brand <span>Grow Digitally.</span></h1>
+<p>We help businesses across Rajasthan & India grow with websites, Google Business Profiles and powerful marketing strategies.</p>
+<div class="hero-buttons">
+<a href="#contact" class="btn">Get Free Business Audit</a>
+<a href="https://wa.me/918949313611" class="btn">Chat on WhatsApp</a>
+</div>
+</div>
+<div class="hero-image">
+<img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop">
+</div>
 </section>
-
-<section id="services">
-  <div class="section-title">
-    <h2>Our Services</h2>
-  </div>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Website Design</h3>
-      <p>Modern websites built to convert visitors into customers.</p>
-    </div>
-
-    <div class="card">
-      <h3>Google Business Profile</h3>
-      <p>Increase local reach and visibility.</p>
-    </div>
-
-    <div class="card">
-      <h3>SEO Optimization</h3>
-      <p>Rank higher on search engines.</p>
-    </div>
-
-    <div class="card">
-      <h3>Social Media Marketing</h3>
-      <p>Build audience engagement.</p>
-    </div>
-  </div>
+<section class="reveal" id="services">
+<div class="section-title"><h2>Our <span>Premium</span> Services</h2></div>
+<div class="services-grid">
+<div class="card"><h3>Website Design</h3><p>Modern websites that convert visitors into customers.</p></div>
+<div class="card"><h3>Google Business Profile</h3><p>Improve local ranking and visibility.</p></div>
+<div class="card"><h3>Social Media Marketing</h3><p>Build trust and engagement online.</p></div>
+<div class="card"><h3>SEO Optimization</h3><p>Rank higher on search engines.</p></div>
+<div class="card"><h3>Meta Ads</h3><p>Generate leads with paid advertising.</p></div>
+<div class="card"><h3>Branding</h3><p>Create strong business identity.</p></div>
+</div>
 </section>
-
-<section class="dark-section">
-  <div class="section-title">
-    <h2>Why Choose Us</h2>
-  </div>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Affordable</h3>
-      <p>Perfect pricing for local businesses.</p>
-    </div>
-
-    <div class="card">
-      <h3>Fast Results</h3>
-      <p>Quick online growth solutions.</p>
-    </div>
-
-    <div class="card">
-      <h3>Support</h3>
-      <p>Personalized 1-on-1 support.</p>
-    </div>
-  </div>
+<section class="reveal">
+<div class="stats">
+<div><h2>150+</h2><p>Happy Clients</p></div>
+<div><h2>250+</h2><p>Projects Completed</p></div>
+<div><h2>300%</h2><p>Average Growth</p></div>
+<div><h2>5.0</h2><p>Client Rating</p></div>
+</div>
 </section>
-
-<section>
-  <div class="section-title">
-    <h2>Our Process</h2>
-  </div>
-
-  <div class="process-grid">
-    <div class="process-step">1. Understand Business</div>
-    <div class="process-step">2. Build Strategy</div>
-    <div class="process-step">3. Launch & Optimize</div>
-    <div class="process-step">4. Generate Leads</div>
-  </div>
+<section class="dark reveal">
+<div class="section-title"><h2>Why Choose Us</h2></div>
+<div class="why-grid">
+<div class="card"><h3>Affordable</h3><p>Perfect digital solutions for local businesses.</p></div>
+<div class="card"><h3>Fast Results</h3><p>Quick setup and strategies that drive growth.</p></div>
+<div class="card"><h3>Support</h3><p>1-on-1 personalized support whenever needed.</p></div>
+<div class="card"><h3>Lead Focused</h3><p>We focus on customers and business growth.</p></div>
+</div>
 </section>
-
-<section id="about">
-  <div class="section-title">
-    <h2>About Udaan Digital</h2>
-  </div>
-
-  <p style="text-align:center; max-width:900px; margin:auto; line-height:2; color:#555;">
-    Udaan Digital helps businesses grow online using websites, branding, local SEO, Google Business Profile setup, and lead generation strategies.
-  </p>
+<section class="reveal">
+<div class="section-title"><h2>Our 4-Step Process</h2></div>
+<div class="process">
+<div class="step"><div class="step-number">1</div><h3>Understand Business</h3></div>
+<div class="step"><div class="step-number">2</div><h3>Build Strategy</h3></div>
+<div class="step"><div class="step-number">3</div><h3>Launch & Optimize</h3></div>
+<div class="step"><div class="step-number">4</div><h3>Generate Customers</h3></div>
+</div>
 </section>
-
-<section>
-  <div class="section-title">
-    <h2>Pricing</h2>
-  </div>
-
-  <div class="pricing-box">
-    <h3>₹5000</h3>
-    <p>Website OR Google Business Setup</p>
-    <p>Basic SEO Included</p>
-    <p>Initial Support</p>
-    <br>
-    <a href="https://wa.me/918949313611" class="btn">Get Started</a>
-  </div>
+<section class="reveal" id="about">
+<div class="about-wrap">
+<div>
+<h2 style="font-size:44px;margin-bottom:20px">Your Growth Partner</h2>
+<p style="line-height:2;color:#666;margin-bottom:25px">Udaan Digital helps businesses grow online using websites, branding, SEO, Google Business Profiles and lead generation.</p>
+<div class="pricing">
+<h4>Affordable Pricing</h4>
+<h2>₹5000</h2>
+<ul>
+<li>Website OR Google Business Setup</li>
+<li>Basic SEO Setup</li>
+<li>Initial Support</li>
+<li>30 Days Support</li>
+</ul>
+<a href="https://wa.me/918949313611" class="btn">Start Now</a>
+</div>
+</div>
+<div>
+<img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1200&auto=format&fit=crop">
+</div>
+</div>
 </section>
-
-<section id="contact">
-  <div class="section-title">
-    <h2>Contact Us</h2>
-  </div>
-
-  <div class="contact-grid">
-    <div>
-      <h3>Get In Touch</h3>
-      <br>
-      <p><strong>Phone:</strong> 8949313611</p>
-      <p><strong>Email:</strong> udaandigital@gmail.com</p>
-      <p><strong>Instagram:</strong> @udaan.digital</p>
-    </div>
-
-    <form onsubmit="sendWhatsApp(); return false;">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="text" id="phone" placeholder="Phone Number" required>
-      <textarea id="message" rows="5" placeholder="Message"></textarea>
-      <button type="submit" class="btn">Send on WhatsApp</button>
-    </form>
-  </div>
+<section class="reveal" id="reviews">
+<div class="section-title"><h2>Client Reviews</h2></div>
+<div class="review">
+<div class="stars">★★★★★</div>
+<h3>Ocean Online & IT Services</h3>
+<p style="margin:20px 0;color:#555;line-height:2">Excellent work by Udaan Digital. Website and Google Business Profile ranking improved a lot. Highly professional support.</p>
+<strong>— Harsh Ji, Owner</strong>
+</div>
 </section>
-
-<section class="quote">
-  <h2>Your business deserves to be seen, trusted and chosen.</h2>
-  <p>— Piyush Tolani | Founder</p>
+<section class="reveal" id="contact">
+<div class="section-title"><h2>Let's Grow Together</h2></div>
+<div class="contact-box">
+<div>
+<h2 style="margin-bottom:20px">Contact Info</h2>
+<p style="margin-bottom:15px">📞 8949313611</p>
+<p style="margin-bottom:15px">📧 8949313611.udaandigital@gmail.com</p>
+<p style="margin-bottom:15px">📍 Rajasthan, India</p>
+</div>
+<form onsubmit="sendWhatsApp();return false;">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="text" id="phone" placeholder="Phone Number" required>
+<textarea rows="5" id="message" placeholder="Your Message"></textarea>
+<button class="btn" type="submit">Send on WhatsApp</button>
+</form>
+</div>
 </section>
-
-<footer>
-  <p>© 2026 Udaan Digital. All Rights Reserved.</p>
+<footer class="footer">
+<div>
+<h2 style="color:#ff6a00">Udaan Digital</h2>
+<p style="margin-top:10px;color:#bbb;line-height:1.9">Turning Clicks Into Customers with premium websites and marketing.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">About</a>
+</div>
+<div>
+<h3>Services</h3>
+<a href="#">Website Design</a>
+<a href="#">SEO</a>
+<a href="#">Branding</a>
+</div>
+<div>
+<h3>Contact</h3>
+<a href="#">WhatsApp</a>
+<a href="#">Gmail</a>
+</div>
 </footer>
-
 <a href="https://wa.me/918949313611" class="floating-whatsapp">💬</a>
-
 <script>
-function toggleMenu() {
-  document.getElementById('navMenu').classList.toggle('active');
+function sendWhatsApp(){
+let name=document.getElementById('name').value;
+let phone=document.getElementById('phone').value;
+let message=document.getElementById('message').value;
+let text=`Hello I am ${name}%0APhone: ${phone}%0AMessage: ${message}`;
+window.open(`https://wa.me/918949313611?text=${text}`,'_blank');
 }
-
-function sendWhatsApp() {
-  let name = document.getElementById('name').value.trim();
-  let phone = document.getElementById('phone').value.trim();
-  let message = document.getElementById('message').value.trim();
-
-  if(name === '' || phone === '') {
-    alert('Please fill required fields');
-    return;
-  }
-
-  let text = `Hello, My Name is ${name}%0APhone: ${phone}%0AMessage: ${message}`;
-
-  let url = `https://wa.me/918949313611?text=${text}`;
-  window.open(url, '_blank');
-}
+window.addEventListener('scroll',()=>{
+document.querySelectorAll('.reveal').forEach(el=>{
+let top=el.getBoundingClientRect().top;
+if(top<window.innerHeight-100){el.classList.add('active')}
+})
+})
 </script>
-
 </body>
 </html>
