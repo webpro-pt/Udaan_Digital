@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udaan Digital | Turning Clicks into Customers</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fff;
+  color: #111;
+  overflow-x: hidden;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  z-index: 999;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 55px;
+  border-radius: 50%;
+}
+
+.logo h2 {
+  color: #ff6a00;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff6a00;
+}
+
+.btn {
+  background: #ff6a00;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255,106,0,0.3);
+}
+
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1800&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 10%;
+}
+
+.hero-content h1 {
+  font-size: 65px;
+  margin-bottom: 15px;
+}
+
+.hero-content span {
+  color: #ff6a00;
+}
+
+.hero-content p {
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.8;
+  color: #ddd;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+section {
+  padding: 100px 8%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title h2 {
+  font-size: 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-bottom: 4px solid #ff6a00;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #ff6a00;
+}
+
+.dark-section {
+  background: #111;
+  color: white;
+}
+
+.dark-section .card {
+  background: #1d1d1d;
+  color: white;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 20px;
+}
+
+.process-step {
+  background: #f5f5f5;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-8px);
+}
+
+.pricing-box {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.pricing-box h3 {
+  color: #ff6a00;
+  font-size: 40px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, textarea {
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #ff6a00;
+}
+
+.quote {
+  background: linear-gradient(135deg,#111,#222);
+  color: white;
+  text-align: center;
+}
+
+.quote h2 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+footer {
+  background: #000;
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
+
+.floating-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 28px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media(max-width:768px) {
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 8%;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+    <h2>Udaan Digital</h2>
+  </div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <nav id="navMenu">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="https://wa.me/918949313611" class="btn">WhatsApp</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Boost Your Brand. <span>Grow Digitally.</span></h1>
+    <p>We help businesses across Rajasthan & India grow with websites, SEO, Google Business Profile and marketing.</p>
+
+    <div class="hero-buttons">
+      <a href="#contact" class="btn">Get Free Audit</a>
+      <a href="https://wa.me/918949313611" class="btn">WhatsApp Now</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-title">
+    <h2>Our Services</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Website Design</h3>
+      <p>Modern websites built to convert visitors into customers.</p>
+    </div>
+
+    <div class="card">
+      <h3>Google Business Profile</h3>
+      <p>Increase local reach and visibility.</p>
+    </div>
+
+    <div class="card">
+      <h3>SEO Optimization</h3>
+      <p>Rank higher on search engines.</p>
+    </div>
+
+    <div class="card">
+      <h3>Social Media Marketing</h3>
+      <p>Build audience engagement.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark-section">
+  <div class="section-title">
+    <h2>Why Choose Us</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Affordable</h3>
+      <p>Perfect pricing for local businesses.</p>
+    </div>
+
+    <div class="card">
+      <h3>Fast Results</h3>
+      <p>Quick online growth solutions.</p>
+    </div>
+
+    <div class="card">
+      <h3>Support</h3>
+      <p>Personalized 1-on-1 support.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <h2>Our Process</h2>
+  </div>
+
+  <div class="process-grid">
+    <div class="process-step">1. Understand Business</div>
+    <div class="process-step">2. Build Strategy</div>
+    <div class="process-step">3. Launch & Optimize</div>
+    <div class="process-step">4. Generate Leads</div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-title">
+    <h2>About Udaan Digital</h2>
+  </div>
+
+  <p style="text-align:center; max-width:900px; margin:auto; line-height:2; color:#555;">
+    Udaan Digital helps businesses grow online using websites, branding, local SEO, Google Business Profile setup, and lead generation strategies.
+  </p>
+</section>
+
+<section>
+  <div class="section-title">
+    <h2>Pricing</h2>
+  </div>
+
+  <div class="pricing-box">
+    <h3>₹5000</h3>
+    <p>Website OR Google Business Setup</p>
+    <p>Basic SEO Included</p>
+    <p>Initial Support</p>
+    <br>
+    <a href="https://wa.me/918949313611" class="btn">Get Started</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-title">
+    <h2>Contact Us</h2>
+  </div>
+
+  <div class="contact-grid">
+    <div>
+      <h3>Get In Touch</h3>
+      <br>
+      <p><strong>Phone:</strong> 8949313611</p>
+      <p><strong>Email:</strong> udaandigital@gmail.com</p>
+      <p><strong>Instagram:</strong> @udaan.digital</p>
+    </div>
+
+    <form onsubmit="sendWhatsApp(); return false;">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="text" id="phone" placeholder="Phone Number" required>
+      <textarea id="message" rows="5" placeholder="Message"></textarea>
+      <button type="submit" class="btn">Send on WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<section class="quote">
+  <h2>Your business deserves to be seen, trusted and chosen.</h2>
+  <p>— Piyush Tolani | Founder</p>
+</section>
+
+<footer>
+  <p>© 2026 Udaan Digital. All Rights Reserved.</p>
+</footer>
+
+<a href="https://wa.me/918949313611" class="floating-whatsapp">💬</a>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navMenu').classList.toggle('active');
+}
+
+function sendWhatsApp() {
+  let name = document.getElementById('name').value.trim();
+  let phone = document.getElementById('phone').value.trim();
+  let message = document.getElementById('message').value.trim();
+
+  if(name === '' || phone === '') {
+    alert('Please fill required fields');
+    return;
+  }
+
+  let text = `Hello, My Name is ${name}%0APhone: ${phone}%0AMessage: ${message}`;
+
+  let url = `https://wa.me/918949313611?text=${text}`;
+  window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
