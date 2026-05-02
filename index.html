@@ -1,224 +1,282 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Udaan Digital</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Udaan Digital Premium</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth}
-body{background:#fff;color:#111;overflow-x:hidden}
-header{position:fixed;top:0;left:0;width:100%;padding:18px 8%;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);z-index:1000}
-.logo{display:flex;align-items:center;gap:12px;color:#fff}
-.logo img{width:55px;border-radius:50%}
-.logo h2{color:#ff7a00}
-nav{display:flex;gap:25px;align-items:center}
-nav a{text-decoration:none;color:#fff;font-size:14px;font-weight:500;transition:.3s}
-nav a:hover{color:#ff7a00}
-.btn{padding:12px 24px;background:linear-gradient(135deg,#ff6a00,#ff9f45);border-radius:40px;text-decoration:none;color:#fff;font-weight:600;display:inline-block;transition:.4s;box-shadow:0 8px 20px rgba(255,106,0,.3)}
-.btn:hover{transform:translateY(-5px) scale(1.05)}
-.hero{min-height:100vh;background:linear-gradient(135deg,#050505,#121212);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:130px 8% 80px;color:#fff;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,#ff6a00 0%,transparent 70%);opacity:.18;right:-100px;top:50px;filter:blur(50px);animation:float 8s infinite ease-in-out}
-@keyframes float{50%{transform:translateY(-30px)}}
-.hero-text h1{font-size:72px;line-height:1.1;margin-bottom:20px;font-weight:800}
-.hero-text span{color:#ff6a00}
-.hero-text p{color:#ccc;line-height:1.9;max-width:550px;margin-bottom:35px}
-.hero-buttons{display:flex;gap:18px;flex-wrap:wrap}
-.hero-image{text-align:center;position:relative}
-.hero-image img{width:95%;max-width:650px;animation:float2 6s infinite ease-in-out;filter:drop-shadow(0 20px 50px rgba(255,106,0,.35))}
-@keyframes float2{50%{transform:translateY(-20px)}}
-section{padding:90px 8%}
-.section-title{text-align:center;margin-bottom:60px}
-.section-title h2{font-size:42px;font-weight:800}
-.section-title span{color:#ff6a00}
-.services-grid,.why-grid,.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
-.card{background:#fff;padding:30px;border-radius:24px;box-shadow:0 10px 30px rgba(0,0,0,.08);transition:.5s;transform-style:preserve-3d}
-.card:hover{transform:translateY(-10px) rotateX(6deg) rotateY(6deg);box-shadow:0 20px 40px rgba(0,0,0,.14)}
-.card h3{margin-bottom:12px;color:#111;font-size:22px}
-.card p{color:#666;line-height:1.8}
-.stats{background:#0f0f0f;border-radius:30px;padding:35px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;color:#fff;text-align:center;box-shadow:0 15px 35px rgba(0,0,0,.12)}
-.stats h2{font-size:42px;color:#ff6a00}
-.dark{background:#080808;color:#fff}
-.dark .card{background:#141414;color:#fff}
-.process{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
-.step{padding:35px;background:#fff;border-radius:24px;box-shadow:0 8px 25px rgba(0,0,0,.08);transition:.4s}
-.step:hover{transform:translateY(-10px)}
-.step-number{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#ff6a00,#ff9f45);margin:auto;margin-bottom:20px;display:flex;justify-content:center;align-items:center;color:#fff;font-size:28px;font-weight:700}
-.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
-.about-wrap img{width:100%;border-radius:25px;box-shadow:0 20px 40px rgba(0,0,0,.15)}
-.pricing{background:#0f0f0f;color:#fff;padding:40px;border-radius:30px;box-shadow:0 20px 45px rgba(0,0,0,.18)}
-.pricing h2{font-size:50px;color:#ff6a00;margin:15px 0}
-.pricing ul{list-style:none;line-height:2.2;color:#ddd;margin-bottom:25px}
-.review{background:#fff;border-radius:30px;padding:40px;box-shadow:0 10px 35px rgba(0,0,0,.08);text-align:center;max-width:850px;margin:auto}
-.stars{color:gold;font-size:30px;margin-bottom:10px}
-.contact-box{background:#0e0e0e;color:#fff;padding:45px;border-radius:30px;display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
-.contact-box input,.contact-box textarea{width:100%;padding:15px;background:#171717;border:1px solid #333;border-radius:14px;color:#fff;margin-bottom:15px}
-.footer{background:#050505;color:#fff;padding:45px 8%;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}
-.footer h3{margin-bottom:15px;color:#ff6a00}
-.footer a{display:block;color:#bbb;text-decoration:none;margin-bottom:8px}
-.floating-whatsapp{position:fixed;bottom:25px;right:25px;width:65px;height:65px;border-radius:50%;background:#25D366;color:#fff;display:flex;justify-content:center;align-items:center;font-size:30px;text-decoration:none;box-shadow:0 10px 25px rgba(0,0,0,.2);z-index:1000;animation:bounce 2s infinite}
-@keyframes bounce{50%{transform:translateY(-8px)}}
-.reveal{opacity:0;transform:translateY(80px);transition:1s}
-.reveal.active{opacity:1;transform:translateY(0)}
-@media(max-width:992px){.hero{grid-template-columns:1fr;text-align:center}.hero-text p{margin:auto;margin-bottom:30px}.hero-buttons{justify-content:center}.about-wrap,.contact-box{grid-template-columns:1fr}.stats,.process,.footer{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){nav{display:none}.hero-text h1{font-size:48px}.stats,.process,.footer{grid-template-columns:1fr}}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{
+background:#0b0b0b;
+color:white;
+overflow-x:hidden;
+}
+
+/* Navbar */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 80px;
+position:fixed;
+width:100%;
+background:rgba(0,0,0,0.8);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+nav h1{
+color:#ff7b00;
+font-size:30px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+padding:10px 20px;
+border:1px solid #ff7b00;
+border-radius:30px;
+}
+
+/* Hero */
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:120px 80px;
+}
+
+.hero-text h2{
+font-size:70px;
+line-height:1.2;
+}
+
+.hero-text span{
+color:#ff7b00;
+}
+
+.hero-text p{
+margin:20px 0;
+font-size:20px;
+color:#ccc;
+max-width:500px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:#ff7b00;
+color:white;
+text-decoration:none;
+border-radius:30px;
+margin-right:15px;
+box-shadow:0px 0px 20px #ff7b00;
+}
+
+.hero-image{
+position:relative;
+}
+
+.hero-image img{
+width:550px;
+animation:float 4s infinite ease-in-out;
+}
+
+.icon{
+position:absolute;
+background:white;
+color:black;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+animation:float 3s infinite;
+}
+
+.icon1{top:20%; left:-40px;}
+.icon2{top:50%; right:-40px;}
+.icon3{bottom:10%; left:20%;}
+
+@keyframes float{
+0%,100%{transform:translateY(0px);}
+50%{transform:translateY(-20px);}
+}
+
+/* Services */
+.services{
+padding:100px 80px;
+text-align:center;
+}
+
+.services h2{
+font-size:50px;
+margin-bottom:50px;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.card{
+background:#151515;
+padding:40px;
+border-radius:20px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px #ff7b00;
+}
+
+/* Stats */
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+padding:80px;
+background:#111;
+text-align:center;
+}
+
+.stats h3{
+font-size:45px;
+color:#ff7b00;
+}
+
+/* Contact */
+.contact{
+padding:100px 80px;
+text-align:center;
+}
+
+.contact h2{
+font-size:50px;
+margin-bottom:30px;
+}
+
+form{
+max-width:600px;
+margin:auto;
+}
+
+input,textarea{
+width:100%;
+padding:18px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+}
+
+button{
+background:#ff7b00;
+color:white;
+padding:15px 30px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-size:18px;
+}
+
+footer{
+background:#111;
+padding:20px;
+text-align:center;
+}
+
+@media(max-width:768px){
+.hero{
+flex-direction:column;
+text-align:center;
+height:auto;
+}
+
+.hero-text h2{
+font-size:45px;
+}
+
+.hero-image img{
+width:300px;
+}
+
+.service-grid,
+.stats{
+grid-template-columns:1fr;
+}
+}
 </style>
 </head>
 <body>
-<header>
-<div class="logo">
-<img src="logo.png">
-<div>
-<h2>Udaan Digital</h2>
-<p style="font-size:12px;color:#bbb">Turning Clicks Into Customers</p>
-</div>
-</div>
+
 <nav>
-<a href="#home">Home</a>
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#reviews">Reviews</a>
-<a href="#contact">Contact</a>
-<a href="mailto:8949313611.udaandigital@gmail.com" class="btn">Gmail Us</a>
-<a href="https://wa.me/918949313611" class="btn">WhatsApp Now</a>
+<h1>Udaan Digital</h1>
+<div>
+<a href="mailto:8949313611.udaandigital@gmail.com">Email</a>
+<a href="https://wa.me/918949313611">WhatsApp</a>
+</div>
 </nav>
-</header>
-<section class="hero" id="home">
+
+<section class="hero">
 <div class="hero-text">
-<h1>Boost Your Brand <span>Grow Digitally.</span></h1>
-<p>We help businesses across Rajasthan & India grow with websites, Google Business Profiles and powerful marketing strategies.</p>
-<div class="hero-buttons">
-<a href="#contact" class="btn">Get Free Business Audit</a>
-<a href="https://wa.me/918949313611" class="btn">Chat on WhatsApp</a>
+<h2>Boost Your Brand <br><span>Grow Digitally</span></h2>
+<p>We help businesses scale with websites, Google Business Profile, social media marketing & paid ads.</p>
+<a href="https://wa.me/918949313611" class="btn">Get Started</a>
+<a href="https://wa.me/918949313611" class="btn">Free Audit</a>
 </div>
-</div>
+
 <div class="hero-image">
-<img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Marketing">
+<div class="icon icon1"><i class="fab fa-instagram"></i></div>
+<div class="icon icon2"><i class="fab fa-facebook"></i></div>
+<div class="icon icon3"><i class="fab fa-google"></i></div>
 </div>
 </section>
-<section class="reveal" id="services">
-<div class="section-title"><h2>Our <span>Premium</span> Services</h2></div>
-<div class="services-grid">
-<div class="card"><h3>Website Design</h3><p>Modern websites that convert visitors into customers.</p></div>
-<div class="card"><h3>Google Business Profile</h3><p>Improve local ranking and visibility.</p></div>
-<div class="card"><h3>Social Media Marketing</h3><p>Build trust and engagement online.</p></div>
-<div class="card"><h3>SEO Optimization</h3><p>Rank higher on search engines.</p></div>
-<div class="card"><h3>Meta Ads</h3><p>Generate leads with paid advertising.</p></div>
-<div class="card"><h3>Branding</h3><p>Create strong business identity.</p></div>
+
+<section class="services">
+<h2>Our Premium Services</h2>
+<div class="service-grid">
+<div class="card">Website Design</div>
+<div class="card">Google Business Profile</div>
+<div class="card">SEO</div>
+<div class="card">Meta Ads</div>
+<div class="card">Social Media Marketing</div>
+<div class="card">Branding</div>
 </div>
 </section>
-<section class="reveal">
-<div class="stats">
-<div><h2>150+</h2><p>Happy Clients</p></div>
-<div><h2>250+</h2><p>Projects Completed</p></div>
-<div><h2>300%</h2><p>Average Growth</p></div>
-<div><h2>5.0</h2><p>Client Rating</p></div>
-</div>
+
+<section class="stats">
+<div><h3>150+</h3><p>Clients</p></div>
+<div><h3>250+</h3><p>Projects</p></div>
+<div><h3>300%</h3><p>Growth</p></div>
+<div><h3>5.0</h3><p>Rating</p></div>
 </section>
-<section class="dark reveal">
-<div class="section-title"><h2>Why Choose Us</h2></div>
-<div class="why-grid">
-<div class="card"><h3>Affordable</h3><p>Perfect digital solutions for local businesses.</p></div>
-<div class="card"><h3>Fast Results</h3><p>Quick setup and strategies that drive growth.</p></div>
-<div class="card"><h3>Support</h3><p>1-on-1 personalized support whenever needed.</p></div>
-<div class="card"><h3>Lead Focused</h3><p>We focus on customers and business growth.</p></div>
-</div>
-</section>
-<section class="reveal">
-<div class="section-title"><h2>Our 4-Step Process</h2></div>
-<div class="process">
-<div class="step"><div class="step-number">1</div><h3>Understand Business</h3></div>
-<div class="step"><div class="step-number">2</div><h3>Build Strategy</h3></div>
-<div class="step"><div class="step-number">3</div><h3>Launch & Optimize</h3></div>
-<div class="step"><div class="step-number">4</div><h3>Generate Customers</h3></div>
-</div>
-</section>
-<section class="reveal" id="about">
-<div class="about-wrap">
-<div>
-<h2 style="font-size:44px;margin-bottom:20px">Your Growth Partner</h2>
-<p style="line-height:2;color:#666;margin-bottom:25px">Udaan Digital helps businesses grow online using websites, branding, SEO, Google Business Profiles and lead generation.</p>
-<div class="pricing">
-<h4>Affordable Pricing</h4>
-<h2>₹5000</h2>
-<ul>
-<li>Website OR Google Business Setup</li>
-<li>Basic SEO Setup</li>
-<li>Initial Support</li>
-<li>30 Days Support</li>
-</ul>
-<a href="https://wa.me/918949313611" class="btn">Start Now</a>
-</div>
-</div>
-<div>
-<img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1200&auto=format&fit=crop">
-</div>
-</div>
-</section>
-<section class="reveal" id="reviews">
-<div class="section-title"><h2>Client Reviews</h2></div>
-<div class="review">
-<div class="stars">★★★★★</div>
-<h3>Ocean Online & IT Services</h3>
-<p style="margin:20px 0;color:#555;line-height:2">Excellent work by Udaan Digital. Website and Google Business Profile ranking improved a lot. Highly professional support.</p>
-<strong>— Harsh Ji, Owner</strong>
-</div>
-</section>
-<section class="reveal" id="contact">
-<div class="section-title"><h2>Let's Grow Together</h2></div>
-<div class="contact-box">
-<div>
-<h2 style="margin-bottom:20px">Contact Info</h2>
-<p style="margin-bottom:15px">📞 8949313611</p>
-<p style="margin-bottom:15px">📧 8949313611.udaandigital@gmail.com</p>
-<p style="margin-bottom:15px">📍 Rajasthan, India</p>
-</div>
-<form onsubmit="sendWhatsApp();return false;">
+
+<section class="contact">
+<h2>Let's Grow Your Business</h2>
+<form onsubmit="sendWhatsApp(); return false;">
 <input type="text" id="name" placeholder="Your Name" required>
 <input type="text" id="phone" placeholder="Phone Number" required>
-<textarea rows="5" id="message" placeholder="Your Message"></textarea>
-<button class="btn" type="submit">Send on WhatsApp</button>
+<textarea id="message" placeholder="Your Message"></textarea>
+<button type="submit">Send on WhatsApp</button>
 </form>
-</div>
 </section>
-<footer class="footer">
-<div>
-<h2 style="color:#ff6a00">Udaan Digital</h2>
-<p style="margin-top:10px;color:#bbb;line-height:1.9">Turning Clicks Into Customers with premium websites and marketing.</p>
-</div>
-<div>
-<h3>Quick Links</h3>
-<a href="#">Home</a>
-<a href="#">Services</a>
-<a href="#">About</a>
-</div>
-<div>
-<h3>Services</h3>
-<a href="#">Website Design</a>
-<a href="#">SEO</a>
-<a href="#">Branding</a>
-</div>
-<div>
-<h3>Contact</h3>
-<a href="#">WhatsApp</a>
-<a href="#">Gmail</a>
-</div>
+
+<footer>
+<p>📞 8949313611 | ✉️ 8949313611.udaandigital@gmail.com</p>
 </footer>
-<a href="https://wa.me/918949313611" class="floating-whatsapp">💬</a>
+
 <script>
 function sendWhatsApp(){
 let name=document.getElementById('name').value;
 let phone=document.getElementById('phone').value;
 let message=document.getElementById('message').value;
-let text=`Hello I am ${name}%0APhone: ${phone}%0AMessage: ${message}`;
-window.open(`https://wa.me/918949313611?text=${text}`,'_blank');
+
+let url=`https://wa.me/918949313611?text=Name:${name}%0APhone:${phone}%0AMessage:${message}`;
+window.open(url,'_blank');
 }
-window.addEventListener('scroll',()=>{
-document.querySelectorAll('.reveal').forEach(el=>{
-let top=el.getBoundingClientRect().top;
-if(top<window.innerHeight-100){el.classList.add('active')}
-})
-})
 </script>
+
 </body>
 </html>
